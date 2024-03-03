@@ -1,5 +1,3 @@
-// Alejandra Paz Rivas
-
 import { Component, OnInit } from '@angular/core';
 import { CollectionService } from '../../service/collection.service';
 import { Article } from '../../models/article.model';

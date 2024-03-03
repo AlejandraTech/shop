@@ -1,5 +1,3 @@
-// Alejandra Paz Rivas
-
 import { Directive } from '@angular/core';
 import { FormControl, ValidationErrors } from '@angular/forms';
 
