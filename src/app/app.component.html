@@ -1,0 +1,39 @@
+<div>
+  <!-- Menú de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Inicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" *ngIf="!isAuthenticated">
+            <a class="nav-link" routerLink="/subscripcion">Subscripción</a>
+          </li>
+          <li class="nav-item" *ngIf="!isAuthenticated">
+            <a class="nav-link" routerLink="/identificacion">Identificación</a>
+          </li>
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link" routerLink="/quiosom">Qui som</a>
+          </li>
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link" routerLink="/colleccions">Col·leccions</a>
+          </li>
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link" routerLink="/cistella">Cistella</a>
+          </li>
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link" routerLink="/areaprivada">Àrea privada</a>
+          </li>
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Área para cargar componentes según la ruta -->
+<router-outlet></router-outlet>

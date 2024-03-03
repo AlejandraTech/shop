@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="pageSizeSelect" class="form-label">Items per page:</label>
+      <select id="pageSizeSelect" class="form-select" (change)="onPageSizeChange($event)">
+        <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <p>Nom: </p>
+      <input type="text" class="form-control" placeholder="Search by name" (input)="onSearchChange($event)">
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let article of articles | paginate: { itemsPerPage: pageSize, currentPage: 1 } | filter: searchName">
+      <h3>{{ article.name }}</h3>
+      <p>{{ article.description }}</p>
+      <p>Price: {{ article.price }}</p>
+    </li>
+  </ul>
+</div>
+
+<div class="container mt-4">
+  <pagination-controls class="pagination" (pageChange)="onPageChange($event)"></pagination-controls>
+</div>

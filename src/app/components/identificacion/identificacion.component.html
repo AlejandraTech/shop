@@ -1,0 +1,28 @@
+<form [formGroup]="identificacionForm" (ngSubmit)="onSubmit()" class="container mt-4">
+  <!-- Campo de entrada para el correo electrónico -->
+  <div class="mb-3">
+    <label for="email" class="form-label">Usuari:</label>
+    <input type="email" formControlName="email" id="email" class="form-control">
+    <!-- Mensajes de error para el campo de correo electrónico -->
+    <div *ngIf="submitted && formControls['email'].errors" class="error-message">
+      <div *ngIf="formControls['email'].errors['required']" class="text-danger">Camp obligatori</div>
+      <div *ngIf="formControls['email'].errors['email']" class="text-danger">Format d'email incorrecte</div>
+    </div>
+  </div>
+  <!-- Campo de entrada para la contraseña -->
+  <div class="mb-3">
+    <label for="dni" class="form-label">Contrasenya:</label>
+    <input type="password" formControlName="dni" id="dni" class="form-control">
+    <!-- Mensajes de error para el campo de contraseña -->
+    <div *ngIf="submitted && formControls['dni'].errors" class="error-message">
+      <div *ngIf="formControls['dni'].errors['required']" class="text-danger">Camp obligatori</div>
+      <div *ngIf="formControls['dni'].errors['minlength']" class="text-danger">La contrasenya ha de tenir com a mínim 9 caràcters</div>
+    </div>
+  </div>
+  <!-- Botón de envío del formulario -->
+  <button type="submit" class="btn btn-primary" [disabled]="!isValidForm">Següent</button>
+  <!-- Botón para volver atrás -->
+  <button type="button" class="btn btn-secondary" (click)="goBack()">Enrere</button>
+  <!-- Mensaje de error general -->
+  <div *ngIf="errorMessage" class="error-message mt-3 text-danger">{{ errorMessage }}</div>
+</form>

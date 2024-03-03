@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <!-- Logotipo -->
+  <div class="container">
+    <h1 class="text-danger">SHOP</h1>
+  </div>
+</div>
+
+<footer>
+  <!-- Botones de aceptar/rechazar cookies -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div *ngIf="!cookiesAccepted">
+          <p>¿Aceptas las cookies?</p>
+          <button class="btn btn-primary" (click)="acceptCookies()">Aceptar</button>
+          <button class="btn btn-secondary" (click)="rejectCookies()">Rechazar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
